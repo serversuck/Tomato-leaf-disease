@@ -4,4 +4,4 @@ streamlit
 matplotlib
 tensorflow
 pillow
-opencv-python
+opencv-contrib-python
