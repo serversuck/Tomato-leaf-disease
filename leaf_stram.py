@@ -65,7 +65,7 @@ if img is not None:
             pred=model.predict(test)
             result = label[np.argmax(pred)]
             st.write("""
-            # {result})
+            # {result}
             """)
 
 else:
