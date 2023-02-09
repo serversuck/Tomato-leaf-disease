@@ -66,9 +66,7 @@ if img is not None:
         if(st.button("ทำนายเลย")):
             pred=model.predict(test)
             result = label[np.argmax(pred)]
-            st.write("""
-            # {result}
-            """)
+            st.caption(result)
 
 else:
             st.text("Please upload the image")
