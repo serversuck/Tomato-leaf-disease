@@ -12,7 +12,7 @@ model=load_model("model.h5")
 
 st.set_page_config(layout='wide')
 
-st.markdown("<h1 style ='text-align: center;color: red'>**ทำนายโรคใบมะเขือเทศ**</h1>",unsafe_allow_html=True)
+st.markdown("<h1 style ='text-align: center;color: red'>**ทำนายชนิดยุง จากภาพด้วย CNN**</h1>",unsafe_allow_html=True)
 
 img=st.file_uploader("Please upload the image in JPG or PNG format",type=['jpg'])
 
