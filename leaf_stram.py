@@ -65,10 +65,10 @@ if img is not None:
             pred=model.predict(test)
             result = label[np.argmax(pred)]
             st.write("""
-            f'{result}')
+            # {result})
             """
 
-        else:
+else:
             st.text("Please upload the image")
 
 
