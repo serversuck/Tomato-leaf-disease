@@ -3,7 +3,7 @@ from tensorflow import _keras
 from keras.models import load_model
 import streamlit as st
 import numpy as np
-# import cv2
+import cv2
 import PIL
 import matplotlib.pyplot as plt
 
@@ -46,7 +46,7 @@ if img is not None:
         return image_array.reshape((1,)+(128,128,3))
     
     if img_arr.shape[0:2] != (128,128):
-        re_sized_img=image.resize((128,128))
+        re_sized_img=cv2.resize(image,(128,128))
         re_sized_arr=np.array(re_sized_img)
         # re_sized_arr=cv2.resize(scaled_img, (256,256),interpolation=cv2.INTER_CUBIC)
         st.text(f"Uploaded Image is re-sized to {re_sized_arr.shape}")
