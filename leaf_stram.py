@@ -7,17 +7,19 @@ import cv2
 import PIL
 import matplotlib.pyplot as plt
 
-#model=load_model("tomato_disease.h5")
-model=load_model("model.h5")
+model=load_model("tomato_disease.h5")
+#model=load_model("model.h5")
 
 st.set_page_config(layout='wide')
 
-st.markdown("<h1 style ='text-align: center;color: red'>**ทำนายชนิดยุง จากภาพด้วย CNN**</h1>",unsafe_allow_html=True)
+st.markdown("<h1 style ='text-align: center;color: red'>**ทำนายโรคใบมะเขือเทศ จากภาพด้วย CNN**</h1>",unsafe_allow_html=True)
 
 img=st.file_uploader("Please upload the image in JPG or PNG format",type=['jpg'])
 
 
-label={0: 'ยุงรำคาญ',1: 'ยุงลาย'}
+label={0: 'Bacterial spot',1: 'Early blight',2: 'Late_blight',3: 'Leaf_Mold',4: 'Septoria_leaf_spot',\
+    5: 'Spider_mites Two-spotted_spider_mite',6: 'Target_Spot',7: 'Yellow_Leaf_Curl_Virus',8: 'mosaic_virus',\
+        9: 'healthy'}
 st.text(label)
 
 if img is not None:
@@ -32,13 +34,13 @@ if img is not None:
         """
         )
     image=PIL.Image.open(img)
-    newsize = (128,128)
+    newsize = (256,256)
     img_arr = np.array(image)
     scaled_img=img_arr/255
     st.image(image)
     st.text(f"Uploaded Image size is {img_arr.shape}")
     def image_processing(image_array):
-        return image_array.reshape((1,)+(128,128,3))
+        return image_array.reshape((1,)+(256,256,3))
     
     if img_arr.shape[0:2] != newsize:
         #re_sized_img=image.resize(newsize)
