@@ -34,25 +34,23 @@ if img is not None:
         
         """
         )
-    image_ori=PIL.Image.open(img)
-    newsize = (128, 128)
-    image = image_ori.resize(newsize)
+    image=PIL.Image.open(img)
+    newsize = (128,128)
     img_arr = np.array(image)
     scaled_img=img_arr/255
-    st.image(image_ori)
-    
+    st.image(image)
+    st.text(f"Uploaded Image size is {img_arr.shape}")
     def image_processing(image_array):
         return image_array.reshape((1,)+(128,128,3))
     
     if img_arr.shape[0:2] != newsize:
         re_sized_img=image.resize(newsize)
         re_sized_arr=np.array(re_sized_img)
-        # re_sized_arr=cv2.resize(scaled_img, (256,256),interpolation=cv2.INTER_CUBIC)
+        # re_sized_arr=cv2.resize(scaled_img, newsize,interpolation=cv2.INTER_CUBIC)
         st.text(f"Uploaded Image is re-sized to {re_sized_arr.shape}")
         test=image_processing(re_sized_arr)
     else:
         test=image_processing(scaled_img)
-        
 #     image_ori=PIL.Image.open(img)
 #     newsize = (128, 128)
 #     image = cv2.resize(image_ori,(newsize),interpolation=cv2.INTER_CUBIC)
@@ -67,7 +65,7 @@ if img is not None:
     with col2:
 
         if(st.button("ทำนายเลย")):
-            pred=model.predict(scaled_img)
+            pred=model.predict(test)
             st.text(label[np.argmax(pred)])
 
 else:
