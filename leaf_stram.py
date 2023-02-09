@@ -68,7 +68,7 @@ if img is not None:
             f'{result}')
             """
 
-else:
-    st.text("Please upload the image")
+        else:
+            st.text("Please upload the image")
 
 
