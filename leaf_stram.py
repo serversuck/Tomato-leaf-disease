@@ -66,7 +66,7 @@ if img is not None:
             result = label[np.argmax(pred)]
             st.write("""
             # {result})
-            """
+            """)
 
 else:
             st.text("Please upload the image")
