@@ -37,7 +37,7 @@ if img is not None:
 
     image_ori=PIL.Image.open(img)
     newsize = (128, 128)
-    image = cv2.resize(image,(newsize),interpolation=cv2.INTER_CUBIC)
+    image = cv2.resize(image_ori,(newsize),interpolation=cv2.INTER_CUBIC)
     img_arr = np.array(image)
     scaled_img=img_arr/255
     st.image(image_ori)
