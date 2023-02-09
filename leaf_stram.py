@@ -33,6 +33,8 @@ if img is not None:
         )
 
     image=PIL.Image.open(img)
+    newsize = (256, 256)
+    image = image.resize(newsize)
     img_arr = np.array(image)
     scaled_img=img_arr/255
     st.image(image)
