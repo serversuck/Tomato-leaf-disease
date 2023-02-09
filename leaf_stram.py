@@ -34,16 +34,18 @@ if img is not None:
         
         """
         )
-    image=PIL.Image.open(img)
+    image_ori=PIL.Image.open(img)
+    newsize = (128, 128)
+    image = image_ori.resize(newsize)
     img_arr = np.array(image)
     scaled_img=img_arr/255
-    st.image(image)
-    st.text(f"Uploaded Image size is {img_arr.shape}")
+    st.image(image_ori)
+    
     def image_processing(image_array):
         return image_array.reshape((1,)+(128,128,3))
     
-    if img_arr.shape[0:2] != (128,128):
-        re_sized_img=image.resize((128,128))
+    if img_arr.shape[0:2] != newsize:
+        re_sized_img=image.resize(newsize)
         re_sized_arr=np.array(re_sized_img)
         # re_sized_arr=cv2.resize(scaled_img, (256,256),interpolation=cv2.INTER_CUBIC)
         st.text(f"Uploaded Image is re-sized to {re_sized_arr.shape}")
