@@ -11,13 +11,13 @@ model=load_model("tomato_disease.h5")
 
 st.set_page_config(layout='wide')
 
-st.markdown("<h1 style ='text-align: center;color: red'>**Tomato Plant Disease Prediction**</h1>",unsafe_allow_html=True)
+st.markdown("<h1 style ='text-align: center;color: red'>**ทำนายโรคใบมะเขือเทศ**</h1>",unsafe_allow_html=True)
 
-img=st.file_uploader("Please upload the image of Tomato leaf in JPG or PNG format",type=['jpg','png'])
+img=st.file_uploader("Please upload the image in JPG or PNG format",type=['jpg'])
 
-label={0: 'Tomato___Bacterial_spot',1: 'Tomato___Early_blight',2: 'Tomato___Late_blight',3: 'Tomato___Leaf_Mold',4: 'Tomato___Septoria_leaf_spot',\
-    5: 'Tomato___Spider_mites Two-spotted_spider_mite',6: 'Tomato___Target_Spot',7: 'Tomato___Tomato_Yellow_Leaf_Curl_Virus',8: 'Tomato___Tomato_mosaic_virus',\
-        9: 'Tomato___healthy'}
+label={0: 'Bacterial spot',1: ' Early blight',2: ' Late blight',3: 'Leaf Mold',4: ' Septoria leaf_spot',\
+    5: ' Spider mites Two-spotted_spider_mite',6: 'Target Spot',7: 'Tomato Yellow_Leaf_Curl_Virus',8: 'Tomato mosaic_virus',\
+        9: 'healthy'}
 st.text(label)
 
 if img is not None:
@@ -27,7 +27,7 @@ if img is not None:
     with col1:
         st.write("""
         
-        # Image to be Predicted
+        # รูปภาพ
         
         """
         )
@@ -53,7 +53,7 @@ if img is not None:
 
     with col2:
 
-        if(st.button("Convert")):
+        if(st.button("ทำนายเลย")):
             pred=model.predict(test)
             st.text(label[np.argmax(pred)])
 
