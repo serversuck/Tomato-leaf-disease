@@ -20,7 +20,7 @@ img=st.file_uploader("Please upload the image in JPG or PNG format",type=['jpg']
 #     5: ' Spider mites Two-spotted_spider_mite',6: 'Target Spot',7: 'Tomato Yellow_Leaf_Curl_Virus',8: 'Tomato mosaic_virus',\
 #         9: 'healthy'}
 
-label={0: 'ยุงลาย',1: 'ยุงรำคาญ'}
+label={0: 'ยุงรำคาญ',1: 'ยุงลาย'}
 st.text(label)
 
 if img is not None:
@@ -36,8 +36,8 @@ if img is not None:
         )
 
     image=PIL.Image.open(img)
-    newsize = (128, 128)
-    image = image.resize((newsize))
+    #newsize = (128, 128)
+    #image = image.resize((newsize))
     img_arr = np.array(image)
     scaled_img=img_arr/255
     st.image(image)
