@@ -70,8 +70,9 @@ if img is not None:
             pred=model.predict(test)
             result = label[np.argmax(pred)]
             prob = str(round((np.max(pred)*100),2))+"%"
-            result = result + "Probability of "+ prob
-            st.caption(result)
+            
+            st.head(result)
+            st.head(prob)
 
 else:
             st.text("Please upload the image")
