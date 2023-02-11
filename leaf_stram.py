@@ -7,8 +7,8 @@ import cv2
 import PIL
 import matplotlib.pyplot as plt
 
-model=load_model("tomato_disease.h5")
-#model=load_model("model.h5")
+#model=load_model("tomato_disease.h5")
+model=load_model("model.h5")
 
 st.set_page_config(layout='wide')
 
@@ -37,13 +37,13 @@ if img is not None:
         )
     image=PIL.Image.open(img)
     #newsize = (256,256)
-    newsize = (224,224)
+    newsize = (128,128)
     img_arr = np.array(image)
     scaled_img=img_arr/255
     st.image(image)
     st.text(f"Uploaded Image size is {img_arr.shape}")
     def image_processing(image_array):
-        return image_array.reshape((1,)+(224,224,3))
+        return image_array.reshape((1,)+(128,128,3))
     
     if img_arr.shape[0:2] != newsize:
         #re_sized_img=image.resize(newsize)
@@ -66,9 +66,11 @@ if img is not None:
 
     with col2:
 
-        if(st.button("ทำนายเลย")):
+        if(st.button("Predict")):
             pred=model.predict(test)
             result = label[np.argmax(pred)]
+            prob = str(round((np.max(pred)*100),2))+"%"
+            result = result + "Probability of "+ prob
             st.caption(result)
 
 else:
