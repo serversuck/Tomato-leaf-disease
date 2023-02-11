@@ -14,14 +14,14 @@ st.set_page_config(layout='wide')
 
 st.markdown("<h1 style ='text-align: center;color: red'>**Cataract Prediction**</h1>",unsafe_allow_html=True)
 
-img=st.file_uploader("Please upload the image in JPG or PNG format",type=['jpg'])
+img=st.file_uploader("Please upload the image in JPG or PNG format",type=['jpg','png'])
 
 
 # label={0: 'Bacterial spot',1: 'Early blight',2: 'Late_blight',3: 'Leaf_Mold',4: 'Septoria_leaf_spot',\
 #     5: 'Spider_mites Two-spotted_spider_mite',6: 'Target_Spot',7: 'Yellow_Leaf_Curl_Virus',8: 'mosaic_virus',\
 #         9: 'healthy'}
 
-label={0: 'Cataract',1: 'Normal'}
+label={0: 'Cataract', 1: 'Normal'}
 st.text(label)
 
 if img is not None:
