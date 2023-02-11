@@ -12,9 +12,9 @@ model=load_model("model.h5")
 
 st.set_page_config(layout='wide')
 
-st.image("https://www.aoa.org/AOA/Images/Patients/Eye%20Conditions/Eye-Cataract.jpg", width=400)
+#st.image("https://www.aoa.org/AOA/Images/Patients/Eye%20Conditions/Eye-Cataract.jpg", width=400)
 
-st.markdown("<h1 style ='text-align: center;color: red'>**Cataract Prediction**</h1>",unsafe_allow_html=True)
+st.markdown("<h1 style ='text-align: center;color: red'>Cataract Prediction</h1>",unsafe_allow_html=True)
 
 img=st.file_uploader("Please upload the image in JPG format",type=['jpg'])
 
