@@ -14,7 +14,7 @@ st.set_page_config(layout='wide')
 
 st.markdown("<h1 style ='text-align: center;color: red'>**Cataract Prediction**</h1>",unsafe_allow_html=True)
 
-img=st.file_uploader("Please upload the image in JPG or PNG format",type=['jpg','png'])
+img=st.file_uploader("Please upload the image in JPG format",type=['jpg'])
 
 
 # label={0: 'Bacterial spot',1: 'Early blight',2: 'Late_blight',3: 'Leaf_Mold',4: 'Septoria_leaf_spot',\
