@@ -71,8 +71,8 @@ if img is not None:
             result = label[np.argmax(pred)]
             prob = str(round((np.max(pred)*100),2))+"%"
             
-            st.head(result)
-            st.head(prob)
+            st.title(result)
+            st.header(prob)
 
 else:
             st.text("Please upload the image")
